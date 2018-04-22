@@ -23,8 +23,11 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
+    //External dependencies
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    //Test dependencies
+    testCompile('junit:junit:4.12')
 }

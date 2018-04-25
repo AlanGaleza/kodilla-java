@@ -31,22 +31,25 @@ public class Item {
         return id;
     }
 
+    @NotNull
     @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
 
+    @NotNull
     @Column(name = "QUANTITY")
     public int getQuantity() {
         return quantity;
     }
 
+    @NotNull
     @Column(name = "VALUE")
     public BigDecimal getValue() {
         return value;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(optional = false, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;

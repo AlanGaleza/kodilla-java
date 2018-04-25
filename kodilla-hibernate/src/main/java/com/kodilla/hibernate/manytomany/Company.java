@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Company.findCompanyByCompanyNameFragment",
+        query = "FROM Company WHERE company_name LIKE :ARG"
+)
+
 @NamedNativeQuery(
         name = "Company.retrieveCompaniesNameWhereFirstThreeCharsAreSimilar",
         query = "SELECT * FROM COMPANIES " +
@@ -34,11 +39,13 @@ public class Company {
         return id;
     }
 
+    @NotNull
     @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;
     }
 
+    @NotNull
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;

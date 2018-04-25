@@ -62,6 +62,10 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(item2);
 
         //When
+        productDao.save(product1);
+        productDao.save(product2);
+        itemDao.save(item1);
+        itemDao.save(item2);
         invoiceDao.save(invoice);
         int idInvoice = invoice.getId();
 
@@ -73,7 +77,6 @@ public class InvoiceDaoTestSuite {
 
         try {
             invoiceDao.delete(idInvoice);
-
         } catch (Exception e) {
             System.out.println(e);
         }

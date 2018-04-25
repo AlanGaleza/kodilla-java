@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 @Transactional
-@Repository
+//@Repository
 public interface InvoiceDao extends CrudRepository<Invoice, Integer> {
 }

@@ -55,7 +55,6 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
-
         //CleanUp
         try {
             companyDao.delete(softwareMachineId);
@@ -89,12 +88,29 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
         //When
         List<Employee> retrieLastName = employeeDao.retrieveLastName("Clarckson");
+
 
         //Then
         Assert.assertEquals("Clarckson", retrieLastName.get(0).getLastname());
         Assert.assertNotEquals(0, retrieLastName.size());
+
+        //CleanUp
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        }catch (Exception e) {
+            //do nothing
+        }
     }
 
     @Test
@@ -120,11 +136,27 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
         //When
         List<Company> retrieveCompaniesNameWhereFirstThreeCharsAreSimilar = companyDao.retrieveCompaniesNameWhereFirstThreeCharsAreSimilar("Sof");
 
         //Then
         Assert.assertEquals("Software Machine", retrieveCompaniesNameWhereFirstThreeCharsAreSimilar.get(0).getName());
         Assert.assertNotEquals(0, retrieveCompaniesNameWhereFirstThreeCharsAreSimilar.size());
+
+        //CleanUp
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        }catch (Exception e) {
+            //do nothing
+        }
     }
 }

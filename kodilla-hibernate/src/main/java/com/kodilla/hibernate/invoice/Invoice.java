@@ -28,15 +28,17 @@ public class Invoice {
     }
 
     @OneToMany(
-            targetEntity = Item.class,
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            //targetEntity = Item.class,
+            //cascade = CascadeType.ALL,
+            //fetch = FetchType.LAZY,
+            orphanRemoval = true
     )
-    @JoinColumn(name = "ITEM_ID")
+    @JoinColumn(name = "INVOICE_ID")
     public List<Item> getItems() {
         return items;
     }
 
+    @NotNull
     @Column(name = "NUMBER")
     public String getNumber() {
         return number;

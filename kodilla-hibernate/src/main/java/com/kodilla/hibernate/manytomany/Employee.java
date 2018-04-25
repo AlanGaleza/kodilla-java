@@ -5,10 +5,17 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveLastName",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.retrieveLastName",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+
+        @NamedQuery(
+                name = "Employee.findEmployeeByLastnameFragment",
+                query = "FROM Employee WHERE lastname LIKE :ARG"
+        )
+})
 
 @Entity
 @Table(name = " EMPLOYEE_id")
@@ -34,11 +41,13 @@ public class Employee {
         return id;
     }
 
+    @NotNull
     @Column(name = "FIRSTNAME")
     public String getFirstname() {
         return firstname;
     }
 
+    @NotNull
     @Column(name = "LASTNAME")
     public String getLastname() {
         return lastname;

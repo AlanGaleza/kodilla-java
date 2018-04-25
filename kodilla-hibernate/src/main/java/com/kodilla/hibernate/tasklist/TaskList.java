@@ -11,7 +11,6 @@ import java.util.List;
 @Entity
 @Table(name = "TASKLISTS")
 public class TaskList {
-
     private int id;
     private String listName;
     private String description;
@@ -34,6 +33,7 @@ public class TaskList {
         return id;
     }
 
+    @NotNull
     @Column(name = "LISTNAME")
     public String getListName() {
         return listName;
@@ -45,7 +45,7 @@ public class TaskList {
     }
 
     @OneToMany(
-            targetEntity = Task.class,
+            //targetEntity = Task.class,
             mappedBy = "taskList",
             cascade = CascadeType.ALL,
             fetch =  FetchType.LAZY

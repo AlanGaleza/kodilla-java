@@ -10,10 +10,12 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
-@Repository
+//@Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
 
     @Query
     List<Company> retrieveCompaniesNameWhereFirstThreeCharsAreSimilar(@Param("THREECHAR") String threeChar);
 
+    @Query
+    List<Company> findCompanyByCompanyNameFragment(@Param("ARG") String arg);
 }

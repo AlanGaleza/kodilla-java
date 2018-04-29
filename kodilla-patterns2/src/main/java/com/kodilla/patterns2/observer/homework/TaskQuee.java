@@ -20,6 +20,7 @@ public class TaskQuee implements QueeObservable {
 
     public void addTaskToQuee(Task task) {
         tasksQuee.offer(task);
+        notifyObserver();
     }
 
     public int getIdQuee() {

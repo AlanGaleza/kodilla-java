@@ -14,7 +14,7 @@ public class Mentor implements QueeObserver{
 
     @Override
     public void update(TaskQuee taskQuee) {
-        System.out.println("U recived new task: " + taskQuee.getTasksQuee().peekLast() + "from: " + taskQuee.getStudentName());
+        System.out.println("U recived new task: " + taskQuee.getTasksQuee().peekLast().getTaskContent() + " from: " + taskQuee.getStudentName());
         updateCount++;
     }
 

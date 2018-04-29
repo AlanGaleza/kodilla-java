@@ -4,9 +4,9 @@ public class Task {
     private int idTask;
     private String taskContent;
 
-    public Task(int id) {
+    public Task(int id, String taskContent) {
         this.idTask = id;
-        this.taskContent = "This should be content of the Task";
+        this.taskContent = taskContent;
     }
 
     public int getIdTask() {

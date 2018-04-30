@@ -1,6 +1,6 @@
 package com.kodilla.patterns2.observer.homework;
 
-public class Mentor implements QueeObserver{
+public class Mentor implements QueueObserver {
     private final int idMentor;
     private int updateCount;
 
@@ -13,7 +13,7 @@ public class Mentor implements QueeObserver{
     }
 
     @Override
-    public void update(TaskQuee taskQuee) {
+    public void update(TaskQueue taskQuee) {
         System.out.println("U recived new task: " + taskQuee.getTasksQuee().peekLast().getTaskContent() + " from: " + taskQuee.getStudentName());
         updateCount++;
     }

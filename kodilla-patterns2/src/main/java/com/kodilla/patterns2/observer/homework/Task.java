@@ -17,7 +17,4 @@ public class Task {
         return taskContent;
     }
 
-    public void setTaskContent(String taskContent) {
-        this.taskContent = taskContent;
-    }
 }
